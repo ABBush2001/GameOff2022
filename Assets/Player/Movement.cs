@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] CharacterController controller;
-    [SerializeField] float speed = 11f;
+    [SerializeField] float speed;
     [SerializeField] float gravity = -30f; //-9.81f
     [SerializeField] LayerMask groundMask;
     bool isGrounded;
@@ -42,11 +42,11 @@ public class Movement : MonoBehaviour
     }
 
     public void OnSprintPressed(){
-        speed = 16f;
+        speed = 8f;
     }
 
     public void OnSprintCanceled(){
-        speed = 11f;
+        speed = 5f;
     }
 
     
