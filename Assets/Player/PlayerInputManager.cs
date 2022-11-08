@@ -4,49 +4,48 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    [SerializeField] Movement movement;
-    [SerializeField] MouseLook mouseLook;
-    PlayerControl controls;
-    PlayerControl.GroundMovementActions groundMovement;
+    private static PlayerInputManager _instance;
+    private PlayerController movement;
 
-    Vector2 horizontalInput;
-    Vector2 mouseInput;
-
+    public static PlayerInputManager Instance{
+        get{
+            return _instance;
+        }
+    }
+    private PlayerControl playerControls;
     private void Awake()
     {
-        controls = new PlayerControl();
-        groundMovement = controls.GroundMovement;
+        if(_instance != null && _instance != this){
+            Destroy(this.gameObject);
+        }
+        else{
+            _instance = this;
+        }
+        playerControls = new PlayerControl();
+        movement = new PlayerController();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
-        //groundMovement.[action].performed += context => do something
-        groundMovement.HorizontalMovement.performed += ctx => horizontalInput = ctx.ReadValue<Vector2>();
-
-        groundMovement.Sprint.performed += _ => movement.OnSprintPressed();
-        groundMovement.Sprint.canceled += _ => movement.OnSprintCanceled();
-
-        groundMovement.MouseX.performed +=  ctx => mouseInput.x = ctx.ReadValue<float>();
-        groundMovement.MouseY.performed +=  ctx => mouseInput.y = ctx.ReadValue<float>();
+        playerControls.Player.Sprint.performed += _ => movement.OnSprintPressed();
+        playerControls.Player.Sprint.canceled += _ => movement.OnSprintCanceled();
 
     }
 
     private void OnEnable()
     {
-        controls.Enable();
+        playerControls.Enable();
     }
 
     private void OnDestroy()
     {
-        controls.Disable();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        playerControls.Disable();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        movement.RecieveInput(horizontalInput);
-        mouseLook.RecieveInput(mouseInput);
+    public Vector2 GetPlayerMovement(){
+        return playerControls.Player.Movement.ReadValue<Vector2>();
+    }
+
+    public Vector2 GetMouseDelta(){
+        return playerControls.Player.Look.ReadValue<Vector2>();
     }
 }

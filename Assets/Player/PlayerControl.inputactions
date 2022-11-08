@@ -2,11 +2,11 @@
     "name": "PlayerControl",
     "maps": [
         {
-            "name": "GroundMovement",
+            "name": "Player",
             "id": "107de326-0cd6-4eaa-a609-7e5ab1297c72",
             "actions": [
                 {
-                    "name": "HorizontalMovement",
+                    "name": "Movement",
                     "type": "PassThrough",
                     "id": "a1439ab5-7c52-4e55-b103-de9a1720b446",
                     "expectedControlType": "Vector2",
@@ -24,19 +24,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MouseX",
+                    "name": "Look",
                     "type": "PassThrough",
-                    "id": "54f8040a-e431-4fe2-a31b-d95221b6c596",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "MouseY",
-                    "type": "PassThrough",
-                    "id": "d175527d-8af3-4067-80b1-5ecbb3c2fc07",
-                    "expectedControlType": "Axis",
+                    "id": "58340b42-f06e-4c3f-997f-44b255db9542",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -50,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorizontalMovement",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -61,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorizontalMovement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -72,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorizontalMovement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -83,7 +74,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorizontalMovement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -94,7 +85,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HorizontalMovement",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -111,23 +102,12 @@
                 },
                 {
                     "name": "",
-                    "id": "e72391ab-b07e-40b5-b5bd-5545e3e78428",
-                    "path": "<Mouse>/delta/x",
+                    "id": "5b1f6f94-7fa0-46bb-a2ca-3e16a3a70f6d",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b198468b-7328-4d10-9bc3-a7c75a94d566",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseY",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
