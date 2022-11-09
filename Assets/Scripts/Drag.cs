@@ -20,21 +20,24 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        /*For Minigame 1*/
         if(eventData.pointerDrag.name == "Cookie")
         {
             GameObject.Find("Shelf1").GetComponent<HorizontalLayoutGroup>().enabled = false;
-            this.transform.SetParent(GameObject.Find("Shelf1").transform);
+            this.transform.SetParent(GameObject.Find("Minigame1Canvas").transform);
         }
         else if(eventData.pointerDrag.name == "Croissant")
         {
             GameObject.Find("Shelf2").GetComponent<HorizontalLayoutGroup>().enabled = false;
-            this.transform.SetParent(GameObject.Find("Shelf2").transform);
+            this.transform.SetParent(GameObject.Find("Minigame1Canvas").transform);
         }
         else if (eventData.pointerDrag.name == "Cupcakes")
         {
             GameObject.Find("Shelf3").GetComponent<HorizontalLayoutGroup>().enabled = false;
-            this.transform.SetParent(GameObject.Find("Shelf3").transform);
+            this.transform.SetParent(GameObject.Find("Minigame1Canvas").transform);
         }
+        /*For Minigame 1*/
+
 
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;

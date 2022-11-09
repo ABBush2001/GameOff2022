@@ -17,9 +17,12 @@ public class Cab1Drop : MonoBehaviour, IDropHandler
             {
                 cab1.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(cab1.transform);
+                Destroy(eventData.pointerDrag.gameObject.GetComponent<Drag>());
+                GameObject.Find("Minigame1Manager").GetComponent<Minigame1Manager>().cookieCounter++;
             }
-            else
+            else if(eventData.pointerDrag.name == "Croissant" || eventData.pointerDrag.name == "Cupcakes")
             {
+                cab1.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(tray.transform);
             }
 
