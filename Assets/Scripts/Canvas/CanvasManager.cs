@@ -35,7 +35,7 @@ public class CanvasManager : Singleton<CanvasManager>
         // deactivate all the screens
         canvasControllerList.ForEach(x => x.gameObject.SetActive(false));
 
-        //Switch to the MainMenu Canvas
+        //Switch to the Explain Canvas
         SwitchCanvas(CanvasType.ExplainCanvas);
 
     }
