@@ -38,6 +38,24 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         }
         /*For Minigame 1*/
 
+        /*For Minigame 3*/
+        if (eventData.pointerDrag.name == "Plate")
+        {
+            GameObject.Find("Shelf1").GetComponent<HorizontalLayoutGroup>().enabled = false;
+            this.transform.SetParent(GameObject.Find("Minigame3Canvas").transform);
+        }
+        else if (eventData.pointerDrag.name == "Fork")
+        {
+            GameObject.Find("Shelf2").GetComponent<HorizontalLayoutGroup>().enabled = false;
+            this.transform.SetParent(GameObject.Find("Minigame3Canvas").transform);
+        }
+        else if (eventData.pointerDrag.name == "Cup")
+        {
+            GameObject.Find("Shelf3").GetComponent<HorizontalLayoutGroup>().enabled = false;
+            this.transform.SetParent(GameObject.Find("Minigame3Canvas").transform);
+        }
+        /*For Minigame 3*/
+
 
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;

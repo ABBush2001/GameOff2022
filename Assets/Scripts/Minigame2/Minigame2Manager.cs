@@ -13,6 +13,8 @@ public class Minigame2Manager : MonoBehaviour
         if(score == 5)
         {
             continueButton.SetActive(true);
+            GameObject.Find("Minigame2Manager").GetComponent<SpawnInFood>().enabled = false;
+            Destroy(GameObject.Find("Platter"));
         }
     }
 }
