@@ -13,9 +13,9 @@ public class CameraFadeOut : MonoBehaviour
     public AnimationCurve Curve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(0.5f, 0.5f, -1.5f, -1.5f), new Keyframe(1, 0));
     public bool startFadedOut = false;
 
-    private float alpha = 0f;
+    public float alpha = 0f;
     private Texture2D texture;
-    private int direction = 0;
+    public int direction = 0;
     private float time = 0f;
 
     private void Start()

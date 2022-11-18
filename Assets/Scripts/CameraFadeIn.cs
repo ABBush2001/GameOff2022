@@ -12,9 +12,9 @@ public class CameraFadeIn : MonoBehaviour
     public AnimationCurve Curve = new AnimationCurve(new Keyframe(0, 1), new Keyframe(0.5f, 0.5f, -1.5f, -1.5f), new Keyframe(1, 0));
     public bool startFadedOut = false;
 
-    private float alpha = 0f;
+    public float alpha = 0f;
     private Texture2D texture;
-    private int direction = 0;
+    public int direction = 0;
     private float time = 0f;
 
     private void Start()
@@ -42,13 +42,15 @@ public class CameraFadeIn : MonoBehaviour
     {
         if (direction == 0 && fadein)
         {
-            fadein = false;
+            
 
             //Fully faded in
             alpha = 1f;
             time = 0f;
             direction = 1;
 
+
+            fadein = false;
         }
         /*else if(SceneManager.GetActiveScene().name == "UnderwaterScene")
         {

@@ -45,6 +45,7 @@ public class CanvasManager : Singleton<CanvasManager>
     //Essentially Give it a CanvasType and it will deactive the current canvas and switch to the given one
     public void SwitchCanvas(CanvasType _type)
     {
+
         if (lastActiveCanvas != null)
         {
             lastActiveCanvas.gameObject.SetActive(false);
@@ -55,6 +56,7 @@ public class CanvasManager : Singleton<CanvasManager>
         {
             desiredCanvas.gameObject.SetActive(true);
             lastActiveCanvas = desiredCanvas;
+            //GameObject.Find("EventSystem").GetComponent<CameraFadeIn>().fadein = true;
         }
         else
         {
@@ -67,7 +69,10 @@ public class CanvasManager : Singleton<CanvasManager>
     }
 
 
-
+    IEnumerator WaitToExec()
+    {
+        yield return new WaitForSeconds(5);
+    }
 
 
 }

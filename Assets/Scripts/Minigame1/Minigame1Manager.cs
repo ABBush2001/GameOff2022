@@ -16,6 +16,7 @@ public class Minigame1Manager : MonoBehaviour
         if(cookieCounter == 1 && croissantCounter == 1 && cupcakeCounter == 1)
         {
             continueButton.SetActive(true);
+            GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete = true;
         }
     }
 
