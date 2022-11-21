@@ -33,5 +33,16 @@ public class eventSystem : MonoBehaviour
             }
             else objectives.text = "go to your computer";
         }
+        if(level == 2){
+            if(trashGrab < 3)
+            {
+                objectives.text = "clean up your mess! pickup some trashbags";
+            }
+            else objectives.text = "go back to your computer";
+        }
+        if(level == 3){
+            objectives.text = "well... time for bed I guess";
+
+        }
     }
 }

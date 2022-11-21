@@ -23,11 +23,27 @@ public class Computer : MonoBehaviour, IInteractable
         if(eventSystem.level == 1)
         {
             if(eventSystem.coffee.eCoffee && eventSystem.toothBrush.eTooth){
-                dialogue.text =  _prompt;
                 eComputer = true;
+                eventSystem.level++;
                 StartCoroutine(waitCoroutine());
                 //load next minigame
             }
+            else {
+            dialogue.text = _prompt;
+            StartCoroutine(waitCoroutine());
+            }
+        }
+        else if(eventSystem.level == 2){
+            if(eventSystem.trashGrab >= 3){
+                eComputer = true;
+                eventSystem.level++;
+                StartCoroutine(waitCoroutine());
+                //load next minigame
+            }
+            else {
+            dialogue.text = _prompt;
+            StartCoroutine(waitCoroutine());
+        }
         }
         return true;
         

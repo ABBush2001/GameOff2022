@@ -16,6 +16,12 @@ public class Trash : MonoBehaviour, IInteractable
     {
         eventSystem = GameObject.Find("EventSystem").GetComponent<eventSystem>();
     }
+    void Update(){
+        if(eventSystem.level == 2){
+            gameObject.layer = 7;
+        }
+        else gameObject.layer = 0;
+    }
 
     public bool Interact(Interactor interactor)
     {

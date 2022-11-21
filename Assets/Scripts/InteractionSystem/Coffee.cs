@@ -10,10 +10,17 @@ public class Coffee : MonoBehaviour, IInteractable
     public bool eCoffee; 
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
+    public eventSystem eventSystem;
 
     void Start()
     {
         eCoffee = false;
+    }
+    void Update(){
+    if(eventSystem.level == 1){
+        gameObject.layer = 7;
+    }
+    else gameObject.layer = 0;
     }
 
     public bool Interact(Interactor interactor)
