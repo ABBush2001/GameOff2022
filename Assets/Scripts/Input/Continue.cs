@@ -10,7 +10,14 @@ public class Continue : MonoBehaviour
     {
         if(DialogueManager.GetInstance().button && InputManager.GetInstance().GetInteractPressed())
         {
-            GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
+            try
+            {
+                GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
+            }
+            catch
+            {
+                Debug.Log("pressed too early!");
+            }
             //reset dialogue complete and button
             DialogueManager.GetInstance().dialogueComplete = false;
             DialogueManager.GetInstance().button.SetActive(false);
