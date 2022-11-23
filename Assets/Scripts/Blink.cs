@@ -20,7 +20,7 @@ public class Blink : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(Random.Range(3, 5));
             l_eye.SetActive(false);
             r_eye.SetActive(false);
             l_eye_close.SetActive(true);
