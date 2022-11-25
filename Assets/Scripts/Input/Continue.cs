@@ -10,13 +10,28 @@ public class Continue : MonoBehaviour
     {
         if(DialogueManager.GetInstance().button && InputManager.GetInstance().GetInteractPressed())
         {
-            try
+            if (GameObject.Find("Minigame1Manager") || GameObject.Find("Minigame2Manager") || GameObject.Find("Minigame3Manager"))
             {
-                GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
+                try
+                {
+                    //load in new scene
+                    GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(1);
+                }
+                catch
+                {
+                    Debug.Log("pressed too early!");
+                }
             }
-            catch
+            else
             {
-                Debug.Log("pressed too early!");
+                try
+                {
+                    GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
+                }
+                catch
+                {
+                    Debug.Log("pressed too early");
+                }
             }
             //reset dialogue complete and button
             DialogueManager.GetInstance().dialogueComplete = false;
