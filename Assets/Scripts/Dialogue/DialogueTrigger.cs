@@ -20,18 +20,18 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (gameManager.GetComponent<GameManager>().minigame1_complete == false)
             {
-                gameManager.GetComponent<GameManager>().minigame1_complete = true;
+                //gameManager.GetComponent<GameManager>().minigame1_complete = true;
                 inkJson = inkJson1;
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson);
             }
             else if(gameManager.GetComponent<GameManager>().minigame2_complete == false)
             {
-                gameManager.GetComponent<GameManager>().minigame2_complete = true;
+                //gameManager.GetComponent<GameManager>().minigame2_complete = true;
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson2);
             }
             else if(gameManager.GetComponent<GameManager>().minigame3_complete == false)
             {
-                gameManager.GetComponent<GameManager>().minigame3_complete = true;
+                //gameManager.GetComponent<GameManager>().minigame3_complete = true;
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson3);
             }
             else

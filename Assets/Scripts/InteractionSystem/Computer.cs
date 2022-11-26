@@ -20,11 +20,11 @@ public class Computer : MonoBehaviour, IInteractable
     public bool Interact(Interactor interactor)
     {
         Debug.Log("interacted with computer");
-        if(eventSystem.level == 1)
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 1)
         {
             if(eventSystem.coffee.eCoffee && eventSystem.toothBrush.eTooth){
                 eComputer = true;
-                eventSystem.level++;
+                GameObject.Find("GameManager").GetComponent<GameManager>().level++;
                 StartCoroutine(waitCoroutine());
                 //load next minigame
             }
@@ -33,10 +33,10 @@ public class Computer : MonoBehaviour, IInteractable
             StartCoroutine(waitCoroutine());
             }
         }
-        else if(eventSystem.level == 2){
+        else if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 2){
             if(eventSystem.trashGrab >= 3){
                 eComputer = true;
-                eventSystem.level++;
+                GameObject.Find("GameManager").GetComponent<GameManager>().level++;
                 StartCoroutine(waitCoroutine());
                 //load next minigame
             }
@@ -54,6 +54,6 @@ public class Computer : MonoBehaviour, IInteractable
     {
         yield return new WaitForSeconds(waitTime);
         dialogue.text = "";
-
+        GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(0);
     }
 }

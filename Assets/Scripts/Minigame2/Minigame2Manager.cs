@@ -20,6 +20,7 @@ public class Minigame2Manager : MonoBehaviour
         {
             continueButton.SetActive(true);
             GameObject.Find("Minigame2Manager").GetComponent<SpawnInFood>().enabled = false;
+            GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete = true;
             Destroy(GameObject.Find("Platter"));
         }
     }

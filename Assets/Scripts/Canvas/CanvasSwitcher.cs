@@ -23,25 +23,25 @@ public class CanvasSwitcher : MonoBehaviour
         Debug.Log("Canvas Switching");
 
         //switch from explain to minigame 1
-        if(GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini1 == false && GameObject.Find("ExplainCanvas"))
+        if(GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == false && GameObject.Find("ExplainCanvas"))
         {
             desiredCanvasType = CanvasType.Minigame1Canvas;
-            GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini1 = true;
+            //GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini1 = true;
             canvasManager.SwitchCanvas(desiredCanvasType);
         }
         //switch from explain to minigame 2
-        else if(GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini2 == false && GameObject.Find("ExplainCanvas"))
+        else if(GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == false && GameObject.Find("ExplainCanvas"))
         {
             desiredCanvasType = CanvasType.Minigame2Canvas;
-            GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini2 = true;
+            //GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini2 = true;
             canvasManager.SwitchCanvas(desiredCanvasType);
             
         }
         //switch from explain to minigame 3
-        else if(GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini3 == false && GameObject.Find("ExplainCanvas"))
+        else if(GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete == false && GameObject.Find("ExplainCanvas"))
         {
             desiredCanvasType = CanvasType.Minigame3Canvas;
-            GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini3 = true;
+            //GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini3 = true;
             canvasManager.SwitchCanvas(desiredCanvasType);
         }
         //else go to default

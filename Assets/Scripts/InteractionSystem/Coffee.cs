@@ -17,7 +17,7 @@ public class Coffee : MonoBehaviour, IInteractable
         eCoffee = false;
     }
     void Update(){
-    if(eventSystem.level == 1){
+    if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 1){
         gameObject.layer = 7;
     }
     else gameObject.layer = 0;

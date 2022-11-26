@@ -16,7 +16,7 @@ public class Bed : MonoBehaviour, IInteractable
 
     }
     void Update(){
-    if(eventSystem.level == 3){
+    if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 3){
         gameObject.layer = 7;
     }
     else gameObject.layer = 0;
