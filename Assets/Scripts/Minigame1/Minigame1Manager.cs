@@ -11,11 +11,12 @@ public class Minigame1Manager : MonoBehaviour
 
     public GameObject continueButton;
     public GameObject gameText;
+    public GameObject gamePanel;
 
     private void Update()
     {
         //these numbers will be increased later
-        if(cookieCounter == 1 && croissantCounter == 1 && cupcakeCounter == 1)
+        if(cookieCounter == 1 && croissantCounter == 1 && cupcakeCounter == 1 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == false)
         {
             StartCoroutine(DisplayText());
             GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete = true;
@@ -24,13 +25,10 @@ public class Minigame1Manager : MonoBehaviour
 
     IEnumerator DisplayText()
     {
+        gamePanel.SetActive(true);
         gameText.SetActive(true);
         yield return new WaitForSeconds(5);
-        try
-        {
-            Destroy(gameText);
-        }
-        catch { }
+        Destroy(gameText);
         continueButton.SetActive(true);
     }
 

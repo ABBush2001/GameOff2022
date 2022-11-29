@@ -15,7 +15,7 @@ public class Continue : MonoBehaviour
                 try
                 {
                     //load in new scene
-                    GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(1);
+                    StartCoroutine(ChangeScenes());
                 }
                 catch
                 {
@@ -26,7 +26,9 @@ public class Continue : MonoBehaviour
             {
                 try
                 {
-                    GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
+                    GameObject.Find("SlidingPanel").GetComponent<SlidingPanel>().SlideAnimOpen();
+                    //GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
+                    //GameObject.Find("SlidingPanel").GetComponent<SlidingPanel>().SlideAnimClosed();
                 }
                 catch
                 {
@@ -35,7 +37,14 @@ public class Continue : MonoBehaviour
             }
             //reset dialogue complete and button
             DialogueManager.GetInstance().dialogueComplete = false;
-            DialogueManager.GetInstance().button.SetActive(false);
+            //DialogueManager.GetInstance().button.SetActive(false);
         }
+    }
+
+    IEnumerator ChangeScenes()
+    {
+        GameObject.Find("Main Camera").GetComponent<CameraFadeOut>().fadeOut = true;
+        yield return new WaitForSeconds(5);
+        GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(1);
     }
 }

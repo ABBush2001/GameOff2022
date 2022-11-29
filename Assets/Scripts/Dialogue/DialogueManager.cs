@@ -70,6 +70,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         dialogueComplete = true;
         button.SetActive(true);
+        GameObject.Find("Person").GetComponent<OpenMouth>().closeM();
     }
 
     private void ContinueStory()
@@ -88,5 +89,6 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         dialoguePanel.SetActive(true);
+        GameObject.Find("Person").GetComponent<OpenMouth>().openM();
     }
 }
