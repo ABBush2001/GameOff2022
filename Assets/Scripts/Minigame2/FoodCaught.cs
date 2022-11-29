@@ -8,7 +8,9 @@ public class FoodCaught : MonoBehaviour
     {
         if(collision.gameObject.name == "Platter")
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+            Destroy(this.gameObject.GetComponent<Rigidbody2D>());
+            this.gameObject.transform.SetParent(collision.gameObject.transform);
             GameObject.Find("Minigame2Manager").GetComponent<Minigame2Manager>().score++;
         }
     }

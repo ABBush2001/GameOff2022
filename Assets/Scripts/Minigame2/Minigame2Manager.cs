@@ -8,6 +8,9 @@ public class Minigame2Manager : MonoBehaviour
     public int score = 0;
     public bool start = false;
 
+    public GameObject gamePanel;
+    public GameObject gameText;
+
     private void Start()
     {
         StartCoroutine(WaitOnStart());
@@ -18,10 +21,7 @@ public class Minigame2Manager : MonoBehaviour
     {
         if(score == 5)
         {
-            continueButton.SetActive(true);
-            GameObject.Find("Minigame2Manager").GetComponent<SpawnInFood>().enabled = false;
-            GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete = true;
-            Destroy(GameObject.Find("Platter"));
+            StartCoroutine(DisplayText());
         }
     }
 
@@ -29,5 +29,17 @@ public class Minigame2Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         start = true;
+    }
+
+    IEnumerator DisplayText()
+    {
+        GameObject.Find("Minigame2Manager").GetComponent<SpawnInFood>().enabled = false;
+        GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete = true;
+        Destroy(GameObject.Find("Platter"));
+        gamePanel.SetActive(true);
+        gameText.SetActive(true);
+        yield return new WaitForSeconds(5);
+        Destroy(gameText);
+        continueButton.SetActive(true);
     }
 }
