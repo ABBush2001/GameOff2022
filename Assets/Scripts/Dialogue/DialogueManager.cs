@@ -16,7 +16,11 @@ public class DialogueManager : MonoBehaviour
     public bool dialogueComplete = false;
     public GameObject button;
 
+    public AudioSource beep;
+
     private static DialogueManager instance;
+
+    int counter = 0;
 
     private void Awake()
     {
@@ -58,19 +62,20 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(WaitAtStart());
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
-        //dialoguePanel.SetActive(true);
-
         ContinueStory();
+
     }
 
     public void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
+        Debug.Log("Exit");
         dialogueText.text = "";
         dialogueComplete = true;
         button.SetActive(true);
         GameObject.Find("Person").GetComponent<OpenMouth>().closeM();
+        GetInstance().enabled = false;
     }
 
     private void ContinueStory()
@@ -78,9 +83,16 @@ public class DialogueManager : MonoBehaviour
         if (currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
+            if (counter != 0)
+            {
+                beep.Play();
+                Debug.Log("Continue");
+            }
+            counter++;
         }
         else
         {
+            beep.Play();
             ExitDialogueMode();
         }
     }
@@ -89,6 +101,11 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         dialoguePanel.SetActive(true);
+        //beep.Play();
         GameObject.Find("Person").GetComponent<OpenMouth>().openM();
+        
+        //dialoguePanel.SetActive(true);
+
+        
     }
 }

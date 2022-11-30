@@ -8,14 +8,33 @@ public class Minigame3Manager : MonoBehaviour
     public int forkCounter = 0;
     public int cupCounter = 0;
 
+    public GameObject gamePanel;
+    public GameObject gameText;
+
+    public AudioSource beep;
+
     public GameObject continueButton;
 
     private void Update()
     {
         //these numbers will be increased later
-        if (plateCounter == 1 && forkCounter == 1 && cupCounter == 1)
+        if (plateCounter == 1 && forkCounter == 1 && cupCounter == 1 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete == false)
         {
-            continueButton.SetActive(true);
+            StartCoroutine(DisplayText());
+            GameObject.Find("GameManager").GetComponent<GameManager>().level++;
         }
+    }
+
+    IEnumerator DisplayText()
+    {
+        GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete = true;
+        Destroy(GameObject.Find("Platter"));
+        gamePanel.SetActive(true);
+        gameText.SetActive(true);
+        beep.Play();
+        yield return new WaitForSeconds(5);
+        Destroy(gameText);
+        continueButton.SetActive(true);
+        beep.Play();
     }
 }

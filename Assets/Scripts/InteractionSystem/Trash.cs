@@ -14,7 +14,7 @@ public class Trash : MonoBehaviour, IInteractable
 
     void Start()
     {
-        eventSystem = GameObject.Find("EventSystem").GetComponent<eventSystem>();
+        eventSystem = GameObject.Find("ApartmentManager").GetComponent<eventSystem>();
     }
     void Update(){
         if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 2){

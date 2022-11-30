@@ -24,25 +24,25 @@ public class Computer : MonoBehaviour, IInteractable
         {
             if(eventSystem.coffee.eCoffee && eventSystem.toothBrush.eTooth){
                 eComputer = true;
-                GameObject.Find("GameManager").GetComponent<GameManager>().level++;
+                //GameObject.Find("GameManager").GetComponent<GameManager>().level++;
                 StartCoroutine(waitCoroutine());
                 //load next minigame
             }
             else {
             dialogue.text = _prompt;
-            StartCoroutine(waitCoroutine());
+            //StartCoroutine(waitCoroutine());
             }
         }
         else if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 2){
             if(eventSystem.trashGrab >= 3){
                 eComputer = true;
-                GameObject.Find("GameManager").GetComponent<GameManager>().level++;
+                //GameObject.Find("GameManager").GetComponent<GameManager>().level++;
                 StartCoroutine(waitCoroutine());
                 //load next minigame
             }
             else {
             dialogue.text = _prompt;
-            StartCoroutine(waitCoroutine());
+            //StartCoroutine(waitCoroutine());
         }
         }
         return true;

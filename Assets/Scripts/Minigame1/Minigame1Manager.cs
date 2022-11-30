@@ -13,6 +13,8 @@ public class Minigame1Manager : MonoBehaviour
     public GameObject gameText;
     public GameObject gamePanel;
 
+    public AudioSource beep;
+
     private void Update()
     {
         //these numbers will be increased later
@@ -20,6 +22,7 @@ public class Minigame1Manager : MonoBehaviour
         {
             StartCoroutine(DisplayText());
             GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().level++;
         }
     }
 
@@ -27,9 +30,11 @@ public class Minigame1Manager : MonoBehaviour
     {
         gamePanel.SetActive(true);
         gameText.SetActive(true);
+        beep.Play();
         yield return new WaitForSeconds(5);
         Destroy(gameText);
         continueButton.SetActive(true);
+        beep.Play();
     }
 
 }

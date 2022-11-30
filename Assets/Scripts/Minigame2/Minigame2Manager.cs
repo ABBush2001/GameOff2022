@@ -11,6 +11,8 @@ public class Minigame2Manager : MonoBehaviour
     public GameObject gamePanel;
     public GameObject gameText;
 
+    public AudioSource beep;
+
     private void Start()
     {
         StartCoroutine(WaitOnStart());
@@ -19,9 +21,10 @@ public class Minigame2Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score == 5)
+        if(score == 10 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == false)
         {
             StartCoroutine(DisplayText());
+            GameObject.Find("GameManager").GetComponent<GameManager>().level++;
         }
     }
 
@@ -38,8 +41,10 @@ public class Minigame2Manager : MonoBehaviour
         Destroy(GameObject.Find("Platter"));
         gamePanel.SetActive(true);
         gameText.SetActive(true);
+        beep.Play();
         yield return new WaitForSeconds(5);
         Destroy(gameText);
         continueButton.SetActive(true);
+        beep.Play();
     }
 }

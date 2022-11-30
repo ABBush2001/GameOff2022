@@ -11,6 +11,9 @@ public class SlidingPanel : MonoBehaviour
     bool startSlide = false;
     bool slideBack = false;
 
+    public AudioSource slideUp;
+    public AudioSource slideDown;
+
     private void Update()
     {
         if (startSlide)
@@ -58,6 +61,7 @@ public class SlidingPanel : MonoBehaviour
 
     public void SlideAnimOpen()
     {
+        slideUp.Play();
         startSlide = true;
     }
 
@@ -73,6 +77,8 @@ public class SlidingPanel : MonoBehaviour
         yield return new WaitForSeconds(3);
         GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
         DialogueManager.GetInstance().button.SetActive(false);
+        slideDown.Play();
+        yield return new WaitForSeconds(1);
         slideBack = true;
     }
 }

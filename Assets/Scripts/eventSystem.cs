@@ -17,7 +17,7 @@ public class eventSystem : MonoBehaviour
         GameObject.Find("GameManager").GetComponent<GameManager>().mouseOn = false;
 
         objectives.text = "";
-        GameObject.Find("GameManager").GetComponent<GameManager>().level = 1;
+        //GameObject.Find("GameManager").GetComponent<GameManager>().level = 1;
         trashGrab = 0;
     }
 

@@ -10,7 +10,7 @@ public class Continue : MonoBehaviour
     {
         if(DialogueManager.GetInstance().button && InputManager.GetInstance().GetInteractPressed())
         {
-            if (GameObject.Find("Minigame1Manager") || GameObject.Find("Minigame2Manager") || GameObject.Find("Minigame3Manager"))
+            if ((GameObject.Find("Minigame1Manager") && GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == true) || (GameObject.Find("Minigame2Manager") && GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == true) || (GameObject.Find("Minigame3Manager") && GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete == true))
             {
                 try
                 {
