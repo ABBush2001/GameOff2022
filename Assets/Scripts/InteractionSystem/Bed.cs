@@ -27,7 +27,7 @@ public class Bed : MonoBehaviour, IInteractable
     {
         Debug.Log("interacted with bed");
         //load final
-        SceneManager.LoadScene("Credits");
+        StartCoroutine(FadeToCredits());
         return true;
         
 
@@ -38,5 +38,12 @@ public class Bed : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(waitTime);
         dialogue.text = "";
 
+    }
+
+    IEnumerator FadeToCredits()
+    {
+        GameObject.Find("Main Camera").GetComponent<CameraFadeOut>().fadeOut = true;
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("Credits");
     }
 }
