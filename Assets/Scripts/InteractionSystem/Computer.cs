@@ -60,6 +60,6 @@ public class Computer : MonoBehaviour, IInteractable
         soundfx.Play();
         GameObject.Find("Main Camera").GetComponent<CameraFadeOut>().fadeOut = true;
         yield return new WaitForSeconds(waitTime);
-        GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(0);
+        GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(1);
     }
 }

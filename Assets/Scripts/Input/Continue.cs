@@ -26,7 +26,24 @@ public class Continue : MonoBehaviour
             {
                 try
                 {
-                    GameObject.Find("SlidingPanel").GetComponent<SlidingPanel>().SlideAnimOpen();
+                    if (GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == false)
+                    {
+                        GameObject.Find("SlidingPanel2").SetActive(false);
+                        GameObject.Find("SlidingPanel3").SetActive(false);
+                        GameObject.Find("SlidingPanel1").GetComponent<SlidingPanel>().SlideAnimOpen();
+                    }
+                    else if (GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == false)
+                    {
+                        GameObject.Find("SlidingPanel1").SetActive(false);
+                        GameObject.Find("SlidingPanel3").SetActive(false);
+                        GameObject.Find("SlidingPanel2").GetComponent<SlidingPanel>().SlideAnimOpen();
+                    }
+                    else
+                    {
+                        GameObject.Find("SlidingPanel2").SetActive(false);
+                        GameObject.Find("SlidingPanel1").SetActive(false);
+                        GameObject.Find("SlidingPanel3").GetComponent<SlidingPanel>().SlideAnimOpen();
+                    }
                     //GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
                     //GameObject.Find("SlidingPanel").GetComponent<SlidingPanel>().SlideAnimClosed();
                 }
@@ -45,6 +62,6 @@ public class Continue : MonoBehaviour
     {
         GameObject.Find("Main Camera").GetComponent<CameraFadeOut>().fadeOut = true;
         yield return new WaitForSeconds(5);
-        GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(1);
+        GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(2);
     }
 }

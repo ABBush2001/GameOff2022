@@ -13,14 +13,12 @@ public class Shelf1Drop : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            if (eventData.pointerDrag.name == "Plate")
+            if (eventData.pointerDrag.tag == "compost")
             {
-                shelf1.GetComponent<HorizontalLayoutGroup>().enabled = true;
-                eventData.pointerDrag.transform.SetParent(shelf1.transform);
-                Destroy(eventData.pointerDrag.gameObject.GetComponent<Drag>());
+                Destroy(eventData.pointerDrag.gameObject);
                 GameObject.Find("Minigame3Manager").GetComponent<Minigame3Manager>().plateCounter++;
             }
-            else if (eventData.pointerDrag.name == "Fork" || eventData.pointerDrag.name == "Cup")
+            else if (eventData.pointerDrag.tag == "recycle" || eventData.pointerDrag.tag == "trash")
             {
                 shelf1.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(tray.transform);

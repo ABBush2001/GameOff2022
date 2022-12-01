@@ -13,6 +13,6 @@ public class MainMenuToUI : MonoBehaviour
     {
         GameObject.Find("Main Camera").GetComponent<CameraFadeOut>().fadeOut = true;
         yield return new WaitForSeconds(5);
-        GameObject.Find("EventSystem").GetComponent<LoadNextScene>().LoadScene(0);
+        GameObject.Find("EventSystem").GetComponent<LoadNextScene>().LoadScene(1);
     }
 }

@@ -18,7 +18,7 @@ public class Minigame3Manager : MonoBehaviour
     private void Update()
     {
         //these numbers will be increased later
-        if (plateCounter == 1 && forkCounter == 1 && cupCounter == 1 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete == false)
+        if (plateCounter == 3 && forkCounter == 3 && cupCounter == 3 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete == false)
         {
             StartCoroutine(DisplayText());
             GameObject.Find("GameManager").GetComponent<GameManager>().level++;
