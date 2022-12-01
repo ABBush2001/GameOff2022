@@ -12,9 +12,12 @@ public class Coffee : MonoBehaviour, IInteractable
     public string InteractionPrompt => _prompt;
     public eventSystem eventSystem;
 
+    private AudioSource soundfx;
+
     void Start()
     {
         eCoffee = false;
+        soundfx = GetComponent<AudioSource>();
     }
     void Update(){
     if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 1){
@@ -27,6 +30,7 @@ public class Coffee : MonoBehaviour, IInteractable
     {
         Debug.Log("interacted with coffee");
         dialogue.text =  _prompt;
+        soundfx.Play();
         eCoffee = true;
         StartCoroutine(waitCoroutine());
         return true;

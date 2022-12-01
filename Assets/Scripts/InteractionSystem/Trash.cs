@@ -11,10 +11,12 @@ public class Trash : MonoBehaviour, IInteractable
     public string InteractionPrompt => _prompt;
     private eventSystem eventSystem;
 
+    private AudioSource soundfx;
 
     void Start()
     {
         eventSystem = GameObject.Find("ApartmentManager").GetComponent<eventSystem>();
+        soundfx = GetComponent<AudioSource>();
     }
     void Update(){
         if(GameObject.Find("GameManager").GetComponent<GameManager>().level == 2){
@@ -28,8 +30,10 @@ public class Trash : MonoBehaviour, IInteractable
         Debug.Log("");
         dialogue.text =  _prompt;
         eventSystem.trashGrab++;
-        Destroy(gameObject);
+        soundfx.Play();
         StartCoroutine(waitCoroutine());
+        
+        
         return true;
         
 
@@ -37,7 +41,11 @@ public class Trash : MonoBehaviour, IInteractable
 
     IEnumerator waitCoroutine()
     {
-        yield return new WaitForSeconds(waitTime);
+        
+        GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(3);
+        
+        Destroy(gameObject);
         dialogue.text = "";
 
     }

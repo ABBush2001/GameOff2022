@@ -12,9 +12,12 @@ public class Toothbrush : MonoBehaviour, IInteractable
     public string InteractionPrompt => _prompt;
     public eventSystem eventSystem;
 
+    private AudioSource soundfx;
+
     void Start()
     {
         eTooth = false;
+        soundfx = GetComponent<AudioSource>();
         
     }
 
@@ -29,6 +32,7 @@ public class Toothbrush : MonoBehaviour, IInteractable
     {
         dialogue.text =  _prompt;
         eTooth = true;
+        soundfx.Play();
         StartCoroutine(waitCoroutine());
         return true;
         
