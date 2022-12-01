@@ -16,12 +16,13 @@ public class Minigame2Manager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(WaitOnStart());
+        StartCoroutine(GameObject.Find("Minigame2Manager").GetComponent<Timer>().Countdown());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(score == 10 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == false)
+        if(GameObject.Find("Minigame2Manager").GetComponent<Timer>().timer == 0 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == false)
         {
             StartCoroutine(DisplayText());
             GameObject.Find("GameManager").GetComponent<GameManager>().level++;

@@ -62,6 +62,7 @@ public class SlidingPanel : MonoBehaviour
     public void SlideAnimOpen()
     {
         slideUp.Play();
+        GameObject.Find("BackgroundMusic").GetComponent<AudioSource>().Pause();
         startSlide = true;
     }
 
@@ -75,6 +76,18 @@ public class SlidingPanel : MonoBehaviour
         Debug.Log("Collided");
         startSlide = false;
         yield return new WaitForSeconds(3);
+        if (GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == false)
+        {
+            GameObject.Find("Minigame1Song").GetComponent<AudioSource>().Play();
+        }
+        else if(GameObject.Find("GameManager").GetComponent<GameManager>().minigame2_complete == false)
+        {
+            GameObject.Find("Minigame2Song").GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            GameObject.Find("Minigame3Song").GetComponent<AudioSource>().Play();
+        }
         GameObject.Find("ContinueButton").GetComponent<CanvasSwitcher>().SwitchCanvas();
         DialogueManager.GetInstance().button.SetActive(false);
         slideDown.Play();

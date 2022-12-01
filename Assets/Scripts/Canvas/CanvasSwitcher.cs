@@ -35,7 +35,7 @@ public class CanvasSwitcher : MonoBehaviour
             desiredCanvasType = CanvasType.Minigame2Canvas;
             //GameObject.Find("MasterCanvas").GetComponent<CanvasManager>().mini2 = true;
             canvasManager.SwitchCanvas(desiredCanvasType);
-            
+
         }
         //switch from explain to minigame 3
         else if(GameObject.Find("GameManager").GetComponent<GameManager>().minigame3_complete == false && GameObject.Find("ExplainCanvas"))
