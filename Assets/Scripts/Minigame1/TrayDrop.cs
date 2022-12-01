@@ -12,6 +12,7 @@ public class TrayDrop : MonoBehaviour, IDropHandler
         if (eventData.pointerDrag != null)
         {
             eventData.pointerDrag.transform.SetParent(tray.transform);
+            GameObject.Find("DropItemSound").GetComponent<AudioSource>().Play();
         }
     }
 }

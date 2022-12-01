@@ -12,6 +12,7 @@ public class FoodCaught : MonoBehaviour
             Destroy(this.gameObject.GetComponent<Rigidbody2D>());
             this.gameObject.transform.SetParent(collision.gameObject.transform);
             GameObject.Find("Minigame2Manager").GetComponent<Minigame2Manager>().score++;
+            GameObject.Find("DropItemSound").GetComponent<AudioSource>().Play();
         }
     }
 }

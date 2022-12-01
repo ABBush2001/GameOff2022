@@ -35,6 +35,7 @@ public class Minigame1Manager : MonoBehaviour
         Destroy(gameText);
         continueButton.SetActive(true);
         beep.Play();
+        GameObject.Find("Minigame1Song").GetComponent<AudioSource>().Pause();
     }
 
 }

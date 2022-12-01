@@ -20,6 +20,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        GameObject.Find("PickUpSound").GetComponent<AudioSource>().Play();
+
         /*For Minigame 1*/
         if(eventData.pointerDrag.name == "Cookie")
         {
