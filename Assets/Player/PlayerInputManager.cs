@@ -6,7 +6,6 @@ public class PlayerInputManager : MonoBehaviour
 {
     private static PlayerInputManager _instance;
     private PlayerController movement;
-    private AudioSource footstepsfx;
 
     public static PlayerInputManager Instance{
         get{
@@ -16,7 +15,6 @@ public class PlayerInputManager : MonoBehaviour
     private PlayerControl playerControls;
     private void Awake()
     {
-        footstepsfx = GameObject.Find("footstep").GetComponent<AudioSource>();
         if(_instance != null && _instance != this){
             Destroy(this.gameObject);
         }
@@ -45,7 +43,6 @@ public class PlayerInputManager : MonoBehaviour
 
     public Vector2 GetPlayerMovement(){
         return playerControls.Player.Movement.ReadValue<Vector2>();
-        footstepsfx.enabled = true;
     }
 
     public Vector2 GetMouseDelta(){

@@ -7,6 +7,9 @@ TagManager:
   - Cookie
   - Croissant
   - Cupcakes
+  - trash
+  - recycle
+  - compost
   layers:
   - Default
   - TransparentFX

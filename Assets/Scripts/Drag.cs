@@ -41,19 +41,19 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         /*For Minigame 1*/
 
         /*For Minigame 3*/
-        if (eventData.pointerDrag.name == "Plate")
+        if (eventData.pointerDrag.tag == "trash")
         {
-            GameObject.Find("Shelf1").GetComponent<HorizontalLayoutGroup>().enabled = false;
+            GameObject.Find("Shelf3").GetComponent<HorizontalLayoutGroup>().enabled = false;
             this.transform.SetParent(GameObject.Find("Minigame3Canvas").transform);
         }
-        else if (eventData.pointerDrag.name == "Fork")
+        else if (eventData.pointerDrag.tag == "recycle")
         {
             GameObject.Find("Shelf2").GetComponent<HorizontalLayoutGroup>().enabled = false;
             this.transform.SetParent(GameObject.Find("Minigame3Canvas").transform);
         }
-        else if (eventData.pointerDrag.name == "Cup")
+        else if (eventData.pointerDrag.tag == "compost")
         {
-            GameObject.Find("Shelf3").GetComponent<HorizontalLayoutGroup>().enabled = false;
+            GameObject.Find("Shelf1").GetComponent<HorizontalLayoutGroup>().enabled = false;
             this.transform.SetParent(GameObject.Find("Minigame3Canvas").transform);
         }
         /*For Minigame 3*/
