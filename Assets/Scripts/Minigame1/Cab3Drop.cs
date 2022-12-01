@@ -13,14 +13,14 @@ public class Cab3Drop : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            if (eventData.pointerDrag.name == "Cupcakes")
+            if (eventData.pointerDrag.tag == "Cupcakes")
             {
                 cab3.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(cab3.transform);
                 Destroy(eventData.pointerDrag.gameObject.GetComponent<Drag>());
                 GameObject.Find("Minigame1Manager").GetComponent<Minigame1Manager>().cupcakeCounter++;
             }
-            else if (eventData.pointerDrag.name == "Croissant" || eventData.pointerDrag.name == "Cookie")
+            else if (eventData.pointerDrag.tag == "Croissant" || eventData.pointerDrag.tag == "Cookie")
             {
                 cab3.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(tray.transform);

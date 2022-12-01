@@ -23,17 +23,17 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         GameObject.Find("PickUpSound").GetComponent<AudioSource>().Play();
 
         /*For Minigame 1*/
-        if(eventData.pointerDrag.name == "Cookie")
+        if(eventData.pointerDrag.tag == "Cookie")
         {
             GameObject.Find("Shelf1").GetComponent<HorizontalLayoutGroup>().enabled = false;
             this.transform.SetParent(GameObject.Find("Minigame1Canvas").transform);
         }
-        else if(eventData.pointerDrag.name == "Croissant")
+        else if(eventData.pointerDrag.tag == "Croissant")
         {
             GameObject.Find("Shelf2").GetComponent<HorizontalLayoutGroup>().enabled = false;
             this.transform.SetParent(GameObject.Find("Minigame1Canvas").transform);
         }
-        else if (eventData.pointerDrag.name == "Cupcakes")
+        else if (eventData.pointerDrag.tag == "Cupcakes")
         {
             GameObject.Find("Shelf3").GetComponent<HorizontalLayoutGroup>().enabled = false;
             this.transform.SetParent(GameObject.Find("Minigame1Canvas").transform);
