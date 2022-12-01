@@ -26,6 +26,7 @@ public class Shelf1Drop : MonoBehaviour, IDropHandler
                 eventData.pointerDrag.transform.SetParent(tray.transform);
             }
 
+            GameObject.Find("DropItemSound").GetComponent<AudioSource>().Play();
         }
     }
 }

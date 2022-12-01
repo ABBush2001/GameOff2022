@@ -17,8 +17,7 @@ public class Minigame1Manager : MonoBehaviour
 
     private void Update()
     {
-        //these numbers will be increased later
-        if(cookieCounter == 1 && croissantCounter == 1 && cupcakeCounter == 1 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == false)
+        if(cookieCounter == 5 && croissantCounter == 5 && cupcakeCounter == 5 && GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete == false)
         {
             StartCoroutine(DisplayText());
             GameObject.Find("GameManager").GetComponent<GameManager>().minigame1_complete = true;
@@ -35,6 +34,7 @@ public class Minigame1Manager : MonoBehaviour
         Destroy(gameText);
         continueButton.SetActive(true);
         beep.Play();
+        GameObject.Find("Minigame1Song").GetComponent<AudioSource>().Pause();
     }
 
 }

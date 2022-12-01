@@ -13,18 +13,20 @@ public class Cab1Drop : MonoBehaviour, IDropHandler
     {
         if(eventData.pointerDrag != null)
         {
-            if(eventData.pointerDrag.name == "Cookie")
+            if(eventData.pointerDrag.tag == "Cookie")
             {
                 cab1.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(cab1.transform);
                 Destroy(eventData.pointerDrag.gameObject.GetComponent<Drag>());
                 GameObject.Find("Minigame1Manager").GetComponent<Minigame1Manager>().cookieCounter++;
             }
-            else if(eventData.pointerDrag.name == "Croissant" || eventData.pointerDrag.name == "Cupcakes")
+            else if(eventData.pointerDrag.tag == "Croissant" || eventData.pointerDrag.tag == "Cupcakes")
             {
                 cab1.GetComponent<HorizontalLayoutGroup>().enabled = true;
                 eventData.pointerDrag.transform.SetParent(tray.transform);
             }
+
+            GameObject.Find("DropItemSound").GetComponent<AudioSource>().Play();
 
         }
     }
