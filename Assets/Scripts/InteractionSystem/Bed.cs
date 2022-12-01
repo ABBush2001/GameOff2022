@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Bed : MonoBehaviour, IInteractable
 {
@@ -26,6 +27,7 @@ public class Bed : MonoBehaviour, IInteractable
     {
         Debug.Log("interacted with bed");
         //load final
+        SceneManager.LoadScene("Credits");
         return true;
         
 

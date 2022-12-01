@@ -12,9 +12,13 @@ public class Computer : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
 
+    private AudioSource soundfx;
+
+
     void Start()
     {
         eComputer = false;
+        soundfx = GetComponent<AudioSource>();
     }
 
     public bool Interact(Interactor interactor)
@@ -52,8 +56,10 @@ public class Computer : MonoBehaviour, IInteractable
 
     IEnumerator waitCoroutine()
     {
-        yield return new WaitForSeconds(waitTime);
         dialogue.text = "";
+        soundfx.Play();
+        GameObject.Find("Main Camera").GetComponent<CameraFadeOut>().fadeOut = true;
+        yield return new WaitForSeconds(waitTime);
         GameObject.Find("GameManager").GetComponent<LoadNextScene>().LoadScene(0);
     }
 }

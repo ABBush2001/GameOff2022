@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private PlayerInputManager inputManager;
     private Transform cameraTransform;
 
+    public AudioSource footstepsfx;
+
 
     private void Start()
     {
@@ -51,6 +53,10 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+        if(movement.x > 0 || movement.y > 0){
+            footstepsfx.enabled = true;
+        }
+        else footstepsfx.enabled = false;
     }
 
     public void OnSprintPressed(){
