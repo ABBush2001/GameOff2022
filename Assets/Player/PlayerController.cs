@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-        if(movement.x > 0 || movement.y > 0){
+        if(movement.x != 0 || movement.y != 0){
             footstepsfx.enabled = true;
         }
         else footstepsfx.enabled = false;
